@@ -3,8 +3,11 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-allopen'
 }
-
+allOpen {
+    annotation("com.mma.orbankmamtest.open.AllOpen")
+}
 android {
     namespace 'com.mma.orbankmamtest'
     compileSdk 33
