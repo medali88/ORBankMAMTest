@@ -1,0 +1,51 @@
+ext {
+    // ANDROID
+    androidCoreKtxVersion = '1.9.0'
+    androidAppCompatVersion = '1.6.1'
+    androidLifecycleRuntimeKtxVersion = '2.5.1'
+    androidActivityComposeVersion = '1.6.1'
+    materialVersion = '1.8.0'
+    windowVersion = '1.1.0-alpha04'
+
+    // COROUTINES
+    coroutinesVersion = '1.6.4'
+
+    // COMPOSE
+    composeVersion = '1.3.0'
+    composeCompilerVersion = '1.3.0'
+    constraintlLayoutComposeVersion = '1.0.1'
+
+    // NAVIGATION
+    navigationVersion = '2.5.3'
+
+    // PAGING
+    pagingVersion = '1.0.0-alpha17'
+    pagingRuntimeKtxVersion = '3.1.1'
+
+    // ACCOMPANIST
+    accompanistVersion = '0.24.9-beta'
+
+    // RETROFIT
+    retrofitVersion = '2.9.0'
+
+    // OKHTTP
+    okHttpVersion = '4.10.0'
+
+    // MOSHI
+    moshiVersion = '1.13.0'
+
+    // HILT
+    hiltVersion = '2.43.2'
+    hiltNavigationVersion = '1.0.0'
+
+    // CHUCKER
+    chuckerVersion = '3.5.2'
+
+    // TEST
+    junit5Version = "5.7.2"
+    mockitoKotlinVersion = "2.2.0"
+    mockitoCoreVersion = "4.0.0"
+    mockitoJunit5Version = "3.11.2"
+    assertJVersion = "3.10.0"
+    kotlinxCoroutinesTestVersion = "1.5.2"
+}

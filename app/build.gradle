@@ -1,0 +1,114 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.mma.orbankmamtest'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.mma.orbankmamtest"
+        minSdk 24
+        targetSdk 33
+        versionCode operationOrBankVersionCode
+        versionName operationOrBankVersionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+        freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion composeCompilerVersion
+    }
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+}
+
+dependencies {
+
+    // ANDROID
+    implementation "androidx.core:core-ktx:$androidCoreKtxVersion"
+    implementation "androidx.appcompat:appcompat:$androidAppCompatVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidLifecycleRuntimeKtxVersion"
+    implementation "androidx.activity:activity-compose:$androidActivityComposeVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.window:window:$windowVersion"
+
+    // COROUTINES
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+    // COMPOSE
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeVersion"
+    implementation "androidx.compose.material:material:$composeVersion"
+    implementation "androidx.compose.foundation:foundation:$composeVersion"
+    implementation "androidx.compose.animation:animation-graphics:$composeVersion"
+    implementation "androidx.constraintlayout:constraintlayout-compose:$constraintlLayoutComposeVersion"
+
+    // NAVIGATION
+    implementation "androidx.navigation:navigation-compose:$navigationVersion"
+
+    // PAGING
+    implementation "androidx.paging:paging-compose:$pagingVersion"
+    implementation "androidx.paging:paging-runtime-ktx:$pagingRuntimeKtxVersion"
+
+    // ACCOMPANIST
+    implementation "com.google.accompanist:accompanist-systemuicontroller:$accompanistVersion"
+    implementation "com.google.accompanist:accompanist-pager:$accompanistVersion"
+
+    // RETROFIT
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+
+    // OKHTTP
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    // MOSHI
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
+
+    // HILT
+    implementation "com.google.dagger:hilt-android:$hiltVersion"
+    kapt "com.google.dagger:hilt-compiler:$hiltVersion"
+    implementation "androidx.hilt:hilt-navigation-compose:$hiltNavigationVersion"
+
+    // CHUCKER
+    debugImplementation "com.github.chuckerteam.chucker:library:$chuckerVersion"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:$chuckerVersion"
+
+    // TEST
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5Version"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junit5Version"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:$junit5Version"
+    testImplementation "org.mockito:mockito-junit-jupiter:$mockitoJunit5Version"
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okHttpVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesTestVersion"
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+}

@@ -1,0 +1,10 @@
+ext {
+    buildNumber = System.getenv('BUILD_NUMBER') ? System.getenv('BUILD_NUMBER').toInteger() % 10000 : 0
+
+    majorVersion = 0
+    minorVersion = 1
+    patchVersion = 0
+
+    operationOrBankVersionCode = majorVersion * 100_000_000 + minorVersion * 100_000 + patchVersion * 10_000 + buildNumber
+    operationOrBankVersionName = majorVersion + "." + minorVersion + "." + patchVersion
+}
