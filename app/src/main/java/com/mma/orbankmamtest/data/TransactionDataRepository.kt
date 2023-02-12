@@ -47,6 +47,7 @@ class TransactionDataRepository @Inject constructor(private val transactionServi
                             issuer = issuer,
                         )
                     },
+                    address = address
                 )
             }
         }

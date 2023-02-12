@@ -10,6 +10,7 @@ data class TransactionsDisplayModel (
     val transactionInformation: String,
     val bankTransactionCode: BankTransactionCodeDisplayModel,
     val proprietaryBankTransactionCode: ProprietaryBankTransactionCodeDisplayModel,
+    val address: String?,
 )
 
 data class AmountDisplayModel(

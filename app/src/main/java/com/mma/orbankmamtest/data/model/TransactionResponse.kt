@@ -39,6 +39,8 @@ data class JsonTransactionInformation(
     val bankTransactionCode: JsonBankTransactionCode,
     @Json(name = "ProprietaryBankTransactionCode")
     val proprietaryBankTransactionCode: JsonProprietaryBankTransactionCode,
+    @Json(name = "Address")
+    val address: String?,
 )
 
 @Keep

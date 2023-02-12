@@ -72,7 +72,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -94,7 +95,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -116,7 +118,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -138,7 +141,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -160,7 +164,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                     )
                 )
@@ -194,7 +199,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -216,7 +222,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     ),
                     debit = listOf(
@@ -240,7 +247,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -262,7 +270,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     )
                 )
@@ -314,7 +323,8 @@ class GetTransactionsUseCaseTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     )
                 )

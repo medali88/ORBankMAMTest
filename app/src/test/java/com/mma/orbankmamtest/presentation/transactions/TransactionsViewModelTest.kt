@@ -72,7 +72,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -94,7 +95,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     ),
                     debit = listOf(
@@ -118,7 +120,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         Transaction(
                             transactionId = "transactionId",
@@ -140,7 +143,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     )
                 )
@@ -175,7 +179,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCodeDisplayModel(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         TransactionsDisplayModel(
                             transactionId = "transactionId",
@@ -197,7 +202,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCodeDisplayModel(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     ),
                     debit = listOf(
@@ -221,7 +227,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCodeDisplayModel(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         ),
                         TransactionsDisplayModel(
                             transactionId = "transactionId",
@@ -243,7 +250,8 @@ class TransactionsViewModelTest {
                             ProprietaryBankTransactionCodeDisplayModel(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     )
                 )

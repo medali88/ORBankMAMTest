@@ -41,6 +41,7 @@ class TransactionDataRepositoryTest {
                     proprietaryBankTransactionCode = JsonProprietaryBankTransactionCode(
                         code = "code", issuer = "issuer"
                     ),
+                    address = "address"
                 )
             )
         )
@@ -79,7 +80,8 @@ class TransactionDataRepositoryTest {
                             ProprietaryBankTransactionCode(
                                 code = "code",
                                 issuer = "issuer",
-                            )
+                            ),
+                            address = "address"
                         )
                     )
                 )

@@ -42,6 +42,13 @@ fun TransactionDetailsScreen(
                 title = stringResource(id = R.string.transaction_amount_title),
                 value = transactionDisplayModel.amount.amount
             )
+            transactionDisplayModel.address?.let {
+                TransactionDetailCard(
+                    modifier = Modifier.padding(top = 12.dp),
+                    title = stringResource(id = R.string.transaction_adress_title),
+                    value = it
+                )
+            }
         }
     }
 }
@@ -68,7 +75,8 @@ fun TransactionDetailsScreenPreview() {
             proprietaryBankTransactionCode = ProprietaryBankTransactionCodeDisplayModel(
                 code = "code",
                 issuer = "issuer",
-            )
+            ),
+            address = "address"
         ),
     )
 }

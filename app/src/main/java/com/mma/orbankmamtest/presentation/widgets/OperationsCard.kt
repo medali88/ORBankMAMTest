@@ -123,7 +123,9 @@ fun OperationCardPreview() {
                 ProprietaryBankTransactionCodeDisplayModel(
                     code = "code",
                     issuer = "issuer",
-                )
-        ))
+                ),
+            address = "address"
+        )
+        )
     }
 }

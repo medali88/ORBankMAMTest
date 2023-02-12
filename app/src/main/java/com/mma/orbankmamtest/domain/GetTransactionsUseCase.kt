@@ -79,6 +79,7 @@ class GetTransactionsUseCase @Inject constructor(
                             issuer = issuer,
                         )
                     },
+                    address = address
                 )
             }
         }

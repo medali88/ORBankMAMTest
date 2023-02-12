@@ -10,6 +10,7 @@ data class Transaction(
     val transactionInformation: String,
     val bankTransactionCode: BankTransactionCode,
     val proprietaryBankTransactionCode: ProprietaryBankTransactionCode,
+    val address: String?,
 )
 
 data class Amount(

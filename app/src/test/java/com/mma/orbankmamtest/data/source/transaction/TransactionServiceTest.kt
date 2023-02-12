@@ -39,6 +39,7 @@ class TransactionServiceTest {
                     proprietaryBankTransactionCode = JsonProprietaryBankTransactionCode(
                         code = "code", issuer = "issuer"
                     ),
+                    address = "address"
                 )
             )
         )

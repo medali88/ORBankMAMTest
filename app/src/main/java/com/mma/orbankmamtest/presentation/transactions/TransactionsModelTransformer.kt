@@ -34,6 +34,7 @@ object TransactionsModelTransformer {
                             issuer = issuer,
                         )
                     },
+                    address = address
                 )
             }
         }
