@@ -2,6 +2,7 @@ package com.mma.orbankmamtest.presentation.transactions
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mma.orbankmamtest.di.IoDispatcher
 import com.mma.orbankmamtest.presentation.transactions.TransactionsFetchUiState.*
 import com.mma.orbankmamtest.domain.TransactionsState.*
 import com.mma.orbankmamtest.domain.GetTransactionsUseCase
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TransactionsViewModel @Inject constructor(
-    private val dispatcher: CoroutineDispatcher,
+    @IoDispatcher private val dispatcher: CoroutineDispatcher,
     private val getTransactionsUseCase: GetTransactionsUseCase
 ) : ViewModel() {
 

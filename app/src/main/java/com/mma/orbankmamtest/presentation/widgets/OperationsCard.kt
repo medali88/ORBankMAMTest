@@ -54,9 +54,54 @@ fun OperationCard(
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun TransactionDetailCard(
+    modifier: Modifier = Modifier,
+    title: String,
+    value: String,
+    onClick: () -> Unit = {}
+) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        backgroundColor = OperationsOrangeDark,
+        elevation = 4.dp,
+        shape = RoundedCornerShape(size = 8.dp),
+        onClick = { onClick() }
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 22.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+                text = title,
+                style = Typography.smallHeading(),
+                color = OperationsWhite
+            )
+            Text(
+                text = value,
+                style = Typography.largeHeading(),
+                color = OperationsWhite,
+                modifier = Modifier.weight(1f),
+            )
+        }
+    }
+}
+
 @Preview
 @Composable
-fun MbeCustomerContactCardEmailPreview() {
+fun TransactionDetailCardPreview() {
+    OperationsTheme {
+        TransactionDetailCard(title = "title", value = "value")
+    }
+}
+
+@Preview
+@Composable
+fun OperationCardPreview() {
     OperationsTheme {
         OperationCard(transactionsDisplayModel =  TransactionsDisplayModel(
             transactionId = "transactionId",

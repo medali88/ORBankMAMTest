@@ -8,4 +8,11 @@
     <string name="credit_title">Crédit</string>
     <string name="debit_title">Débit</string>
     <string name="swipe_title">Balayez pour rafraîchir</string>
+    <string name="details_title">Détail</string>
+
+    <!-- transactions details -->
+    <string name="transaction_information_title">Informations de transactions:</string>
+    <string name="transaction_reference_title">Réference:</string>
+    <string name="transaction_amount_title">Montant de transaction:</string>
+    <string name="transaction_adress_title">Adresse:</string>
 </resources>

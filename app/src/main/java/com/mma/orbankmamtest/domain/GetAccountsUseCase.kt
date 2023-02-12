@@ -2,6 +2,7 @@ package com.mma.orbankmamtest.domain
 
 import com.mma.orbankmamtest.data.AccountDataRepository
 import com.mma.orbankmamtest.data.AccountDataState.*
+import com.mma.orbankmamtest.di.IoDispatcher
 import com.mma.orbankmamtest.domain.models.Account
 import com.mma.orbankmamtest.domain.AccountsState.*
 import com.mma.orbankmamtest.open.OpenForTesting
@@ -12,7 +13,7 @@ import javax.inject.Inject
 @OpenForTesting
 class GetAccountsUseCase @Inject constructor(
     private val accountDataRepository: AccountDataRepository,
-    private val dispatcher: CoroutineDispatcher
+    @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) {
 
     suspend fun getAccounts() = withContext(dispatcher) {

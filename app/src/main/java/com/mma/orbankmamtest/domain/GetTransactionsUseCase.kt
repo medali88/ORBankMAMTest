@@ -2,6 +2,7 @@ package com.mma.orbankmamtest.domain
 
 import com.mma.orbankmamtest.data.TransactionDataRepository
 import com.mma.orbankmamtest.data.TransactionDataState.*
+import com.mma.orbankmamtest.di.IoDispatcher
 import com.mma.orbankmamtest.domain.TransactionsState.*
 import com.mma.orbankmamtest.domain.models.Amount
 import com.mma.orbankmamtest.domain.models.BankTransactionCode
@@ -16,7 +17,7 @@ import javax.inject.Inject
 @OpenForTesting
 class GetTransactionsUseCase @Inject constructor(
     private val transactionDataRepository: TransactionDataRepository,
-    private val dispatcher: CoroutineDispatcher
+    @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) {
 
     companion object {

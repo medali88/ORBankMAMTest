@@ -23,6 +23,7 @@ import com.mma.orbankmamtest.presentation.widgets.OrBankLoading
 fun TransactionsScreen(
     modifier: Modifier = Modifier,
     transactionsViewModel: TransactionsViewModel = viewModel(),
+    onTransactionClicked: (TransactionsDisplayModel) -> Unit,
 ) {
     val transactions by transactionsViewModel.transactionsData.collectAsState()
     val scrollState = rememberLazyListState()
@@ -45,7 +46,9 @@ fun TransactionsScreen(
                 (transactions as? SuccessTransactionsUiState)?.credit?.let {
                     transactionsList(
                         transactionList = it,
-                        onTransactionSelected = {}
+                        onTransactionSelected = { details ->
+                            onTransactionClicked(details)
+                        }
                     )
                 }
                 item {
@@ -62,7 +65,9 @@ fun TransactionsScreen(
                 (transactions as? SuccessTransactionsUiState)?.debit?.let {
                     transactionsList(
                         transactionList = it,
-                        onTransactionSelected = {}
+                        onTransactionSelected = { details ->
+                            onTransactionClicked(details)
+                        }
                     )
                 }
             }
@@ -97,14 +102,14 @@ fun TransactionsScreen(
 
 fun LazyListScope.transactionsList(
     transactionList: List<TransactionsDisplayModel>,
-    onTransactionSelected: () -> Unit
+    onTransactionSelected: (TransactionsDisplayModel) -> Unit
 ) {
     items(transactionList) { transaction ->
         OperationCard(
             modifier = Modifier
                 .padding(start = 20.dp, end = 20.dp, bottom = 16.dp),
             transactionsDisplayModel = transaction,
-            onClick = onTransactionSelected
+            onClick = { onTransactionSelected(transaction) }
         )
     }
 }

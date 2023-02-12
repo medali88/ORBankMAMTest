@@ -11,6 +11,7 @@ import androidx.compose.material.pullrefresh.PullRefreshIndicator
 import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,6 +25,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mma.orbankmamtest.R
 import com.mma.orbankmamtest.presentation.widgets.OrBankLoading
 import com.mma.orbankmamtest.presentation.theme.*
+import com.mma.orbankmamtest.presentation.transactions.TransactionsDisplayModel
 import com.mma.orbankmamtest.presentation.transactions.TransactionsScreen
 import com.mma.orbankmamtest.presentation.transactions.TransactionsViewModel
 
@@ -31,13 +33,14 @@ import com.mma.orbankmamtest.presentation.transactions.TransactionsViewModel
 @Composable
 fun AccountsScreen(
     accountsViewModel: AccountsViewModel = viewModel(),
-    transactionViewModel: TransactionsViewModel = viewModel()
+    transactionViewModel: TransactionsViewModel = viewModel(),
+    onTransactionClicked: (TransactionsDisplayModel) -> Unit,
 ) {
     val accounts by accountsViewModel.accountsData.collectAsState()
     val isRefreshingAccounts by accountsViewModel.isRefreshingAccounts.collectAsState()
     val isRefreshingTransaction by transactionViewModel.isRefreshingTransactions.collectAsState()
-    var expanded by remember { mutableStateOf(false) }
-    var selectedAccountTransactionUrl by remember { mutableStateOf("") }
+    var expanded by rememberSaveable { mutableStateOf(false) }
+    var selectedAccountTransactionUrl by rememberSaveable { mutableStateOf("") }
     val pullRefreshAccountsState = rememberPullRefreshState(isRefreshingAccounts, {
         accountsViewModel.refreshAccounts()
     })
@@ -91,6 +94,7 @@ fun AccountsScreen(
                                     .fillMaxWidth()
                                     .pullRefresh(pullRefreshTransactionState)
                                     .padding(top = 20.dp),
+                                onTransactionClicked = { onTransactionClicked(it) },
                             )
                         }
                     }
@@ -149,11 +153,10 @@ private fun FailureGetAccounts(accountsViewModel: AccountsViewModel) {
 fun AccountsSelector(
     modifier: Modifier,
     accounts: List<AccountsDisplayModel>,
-    onAccountSelected: (account: AccountsDisplayModel) -> Unit,
+    onAccountSelected: (AccountsDisplayModel) -> Unit,
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var selectedOptionText by remember { mutableStateOf("") }
-
+    var selectedOptionText by rememberSaveable { mutableStateOf("") }
     ExposedDropdownMenuBox(modifier = modifier, expanded = expanded, onExpandedChange = {
         expanded = !expanded
     }) {
