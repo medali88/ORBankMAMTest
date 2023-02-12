@@ -1,6 +1,8 @@
-package com.mma.orbankmamtest.data.source
+package com.mma.orbankmamtest.data.source.account
 
 import com.mma.orbankmamtest.data.model.*
+import com.mma.orbankmamtest.data.source.account.AccountEndPoint
+import com.mma.orbankmamtest.data.source.account.AccountService
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat

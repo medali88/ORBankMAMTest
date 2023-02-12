@@ -1,10 +1,10 @@
-package com.mma.orbankmamtest.domain
+package com.mma.orbankmamtest.presentation.accounts
 
-import com.mma.orbankmamtest.data.AccountDataRepository
-import com.mma.orbankmamtest.data.AccountDataState
+import com.mma.orbankmamtest.domain.AccountsState.*
+import com.mma.orbankmamtest.domain.GetAccountsUseCase
 import com.mma.orbankmamtest.domain.models.Account
 import com.mma.orbankmamtest.domain.models.AccountInfo
-import com.mma.orbankmamtest.domain.AccountsState.*
+import com.mma.orbankmamtest.presentation.accounts.AccountsFetchUiState.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.*
@@ -20,23 +20,22 @@ import org.mockito.junit.jupiter.MockitoExtension
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @ExtendWith(MockitoExtension::class)
-class GetAccountsUseCaseTest {
+class AccountsViewModelTest {
 
     private val scheduler = TestCoroutineScheduler()
     private val mainDispatcher = StandardTestDispatcher(scheduler)
 
     @Mock
-    private lateinit var accountDataRepository: AccountDataRepository
+    lateinit var getAccountsUseCase: GetAccountsUseCase
 
-    private lateinit var getAccountsUseCase: GetAccountsUseCase
-
+    private lateinit var accountsViewModel: AccountsViewModel
 
     @BeforeEach
     internal fun setUp() {
         Dispatchers.setMain(mainDispatcher)
-        getAccountsUseCase = GetAccountsUseCase(
+        accountsViewModel = AccountsViewModel(
             dispatcher = mainDispatcher,
-            accountDataRepository = accountDataRepository,
+            getAccountsUseCase = getAccountsUseCase,
         )
     }
 
@@ -46,41 +45,10 @@ class GetAccountsUseCaseTest {
     }
 
     @Test
-    fun `getAccounts should fetch accounts and return ValidAccounts success with accounts`() {
+    fun `getAccounts when getAccounts from getAccountsUseCase is ValidAccounts then return SuccessAccountsUiState with accountsDisplayModel`() {
         runTest {
             //given
-            given(accountDataRepository.fetchAccounts()).willReturn(
-                AccountDataState.AccountSuccess(
-                    listOf(
-                        Account(
-                            accountId = "accountId",
-                            status = "status",
-                            statusUpdateDateTime = "statusUpdateDateTime",
-                            currency = "currency",
-                            accountType = "accountType",
-                            accountSubType = "accountId",
-                            nickname = "nickname",
-                            openingDate = "openingDate",
-                            transactionsUrl = "transactionsUrl",
-                            accountInfo = listOf(
-                                AccountInfo(
-                                    schemeName = "schemeName",
-                                    identification = "identification",
-                                    name = "name",
-                                    secondaryIdentification = "secondaryIdentification",
-                                )
-                            )
-                        )
-                    )
-                )
-            )
-
-            // When
-            val result = getAccountsUseCase.getAccounts()
-            scheduler.advanceUntilIdle()
-
-            // Then
-            assertThat(result).isEqualTo(
+            given(getAccountsUseCase.getAccounts()).willReturn(
                 ValidAccounts(
                     listOf(
                         Account(
@@ -105,21 +73,73 @@ class GetAccountsUseCaseTest {
                     )
                 )
             )
+
+            //when
+            accountsViewModel.getAccounts()
+
+            //then
+            assertThat(accountsViewModel.accountsData.value).isEqualTo(LoadingAccountsUiState)
+            scheduler.advanceUntilIdle()
+            assertThat(accountsViewModel.accountsData.value).isEqualTo(
+                SuccessAccountsUiState(
+                    listOf(
+                        AccountsDisplayModel(
+                            accountId = "accountId",
+                            status = "status",
+                            statusUpdateDateTime = "statusUpdateDateTime",
+                            currency = "currency",
+                            accountType = "accountType",
+                            accountSubType = "accountId",
+                            nickname = "nickname",
+                            openingDate = "openingDate",
+                            transactionsUrl = "transactionsUrl",
+                            accountInfo = listOf(
+                                AccountInfoDisplayModel(
+                                    schemeName = "schemeName",
+                                    identification = "identification",
+                                    name = "name",
+                                    secondaryIdentification = "secondaryIdentification",
+                                )
+                            )
+                        )
+                    )
+                )
+            )
         }
     }
 
     @Test
-    fun `getAccounts should fetch accounts and return InvalidAccounts`() {
+    fun `getAccounts when getAccounts from getAccountsUseCase is InvalidAccounts then return FailureAccountsUiState`() {
         runTest {
             //given
-            given(accountDataRepository.fetchAccounts()).willReturn(AccountDataState.AccountFailure)
+            given(getAccountsUseCase.getAccounts()).willReturn(InvalidAccounts)
 
-            // When
-            val result = getAccountsUseCase.getAccounts()
+            //when
+            accountsViewModel.getAccounts()
+
+            //then
+            assertThat(accountsViewModel.accountsData.value).isEqualTo(LoadingAccountsUiState)
             scheduler.advanceUntilIdle()
+            assertThat(accountsViewModel.accountsData.value).isEqualTo(
+                FailureAccountsUiState
+            )
+        }
+    }
 
-            // Then
-            assertThat(result).isEqualTo(InvalidAccounts)
+    @Test
+    fun `refreshAccounts when getAccounts from getAccountsUseCase then isRefreshingAccounts is false`() {
+        runTest {
+            //given
+            given(getAccountsUseCase.getAccounts()).willReturn(InvalidAccounts)
+
+            //when
+            accountsViewModel.refreshAccounts()
+
+            //then
+            scheduler.advanceUntilIdle()
+            assertThat(accountsViewModel.isRefreshingAccounts.value).isEqualTo(
+                false
+            )
         }
     }
 }

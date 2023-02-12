@@ -11,11 +11,11 @@ private val LightColorPalette = lightColors(
     secondaryVariant = OperationsDark,
     background = OperationsOrangeLight,
     surface = OperationsOrangeLight,
-    onPrimary = OperationsOrangeLight,
-    onSecondary = OperationsOrangeLight,
-    onBackground = OperationsOrangeLight,
-    onSurface = OperationsOrangeLight,
-    onError = OperationsOrangeLight,
+    onPrimary = OperationsOrange,
+    onSecondary = OperationsOrange,
+    onBackground = OperationsOrange,
+    onSurface = OperationsOrange,
+    onError = OperationsRedLight,
     error = OperationsRed
 )
 

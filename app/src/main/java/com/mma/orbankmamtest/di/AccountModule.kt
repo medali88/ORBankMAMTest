@@ -1,6 +1,6 @@
 package com.mma.orbankmamtest.di
 
-import com.mma.orbankmamtest.data.source.AccountEndPoint
+import com.mma.orbankmamtest.data.source.account.AccountEndPoint
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -13,11 +13,11 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class RetrofitModule {
+class AccountModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(): Retrofit = Retrofit.Builder()
+    fun provideAccountRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(
             MoshiConverterFactory.create(

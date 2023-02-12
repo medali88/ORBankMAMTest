@@ -1,23 +1,24 @@
 package com.mma.orbankmamtest.data
 
 import com.mma.orbankmamtest.data.model.JsonAccountResponse
-import com.mma.orbankmamtest.data.source.AccountService
-import com.mma.orbankmamtest.domain.model.Account
-import com.mma.orbankmamtest.domain.model.AccountInfo
+import com.mma.orbankmamtest.data.source.account.AccountService
+import com.mma.orbankmamtest.data.AccountDataState.*
+import com.mma.orbankmamtest.domain.models.Account
+import com.mma.orbankmamtest.domain.models.AccountInfo
 import com.mma.orbankmamtest.open.OpenForTesting
 import javax.inject.Inject
 
 @OpenForTesting
 class AccountDataRepository @Inject constructor(private val accountService: AccountService) {
 
-   suspend fun fetchAccounts() = try {
-        transformToEntity(accountService.getAccountsData())
-    } catch (e: java.lang.Exception) {
-        AccountDataResponse.Failure
+    suspend fun fetchAccounts() = try {
+        transformToEntity(response = accountService.getAccountsData())
+    } catch (e: Exception) {
+        AccountFailure
     }
 
     private fun transformToEntity(response: JsonAccountResponse) =
-        AccountDataResponse.Success(response.toEntity())
+        AccountSuccess(accounts = response.toEntity())
 
     private fun JsonAccountResponse.toEntity() =
         data.account.map { account ->

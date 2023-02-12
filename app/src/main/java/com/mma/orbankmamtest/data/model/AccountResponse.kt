@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 @Keep
 @JsonClass(generateAdapter = true)
 data class JsonAccountResponse(
-    @Json(name = "data")
+    @Json(name = "Data")
     val data: AccountList
 )
 
@@ -36,7 +36,7 @@ data class JsonAccountInformation(
     @Json(name = "Nickname")
     val nickname: String,
     @Json(name = "OpeningDate")
-    val openingDate: String,
+    val openingDate: String?,
     @Json(name = "transactionsUrl")
     val transactionsUrl: String,
     @Json(name = "Account")
@@ -53,6 +53,6 @@ data class JsonAccountInfo(
     @Json(name = "Name")
     val name: String,
     @Json(name = "SecondaryIdentification")
-    val secondaryIdentification: String,
+    val secondaryIdentification: String?,
 )
 

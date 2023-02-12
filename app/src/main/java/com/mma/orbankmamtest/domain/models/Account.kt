@@ -1,6 +1,6 @@
-package com.mma.orbankmamtest.domain.model
+package com.mma.orbankmamtest.domain.models
 
-data class Account (
+data class Account(
     val accountId: String,
     val status: String,
     val statusUpdateDateTime: String,
@@ -8,14 +8,14 @@ data class Account (
     val accountType: String,
     val accountSubType: String,
     val nickname: String,
-    val openingDate: String,
+    val openingDate: String?,
     val transactionsUrl: String,
     val accountInfo: List<AccountInfo>
 )
 
-data class AccountInfo (
+data class AccountInfo(
     val schemeName: String,
     val identification: String,
     val name: String,
-    val secondaryIdentification: String,
+    val secondaryIdentification: String?,
 )

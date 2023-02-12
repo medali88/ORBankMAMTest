@@ -29,7 +29,8 @@ val OperationsXLight = Color(0xFFAFAFAF)
 
 val OperationsWhite = Color(0xFFFFFFFF)
 val OperationsLightGray = Color(0xFFFAFAFA)
-val OperationsRed = Color(0xFFDE0000)
+val OperationsRed = Color(0xFF8B0000)
+val OperationsRedLight = Color(0xFFFEEFEA)
 
 @Preview(showBackground = true, backgroundColor = 0xFFE0E0E0, widthDp = 300)
 @Composable
@@ -71,6 +72,7 @@ fun ColorsPreview() {
                     ColorPreview(padding = 0.dp, text = "White", color = OperationsWhite)
                     ColorPreview(text = "Light Gray", color = OperationsLightGray)
                     ColorPreview(text = "Red", color = OperationsRed)
+                    ColorPreview(text = "Red Light", color = OperationsRedLight)
                 }
             }
         }

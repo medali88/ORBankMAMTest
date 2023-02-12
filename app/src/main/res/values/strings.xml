@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ORBankMAMTest</string>
+    <string name="welcome_title">ORBankTest by MMA</string>
+
+    <string name="error_text">Une erreur est survenue</string>
+    <string name="refresh_text">Refresh</string>
+    <string name="choose_text">Veuillez choisir un compte</string>
+    <string name="credit_title">Crédit</string>
+    <string name="debit_title">Débit</string>
+    <string name="swipe_title">Balayez pour rafraîchir</string>
 </resources>

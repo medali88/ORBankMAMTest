@@ -1,9 +1,9 @@
 package com.mma.orbankmamtest.data
 
 import com.mma.orbankmamtest.data.model.*
-import com.mma.orbankmamtest.data.source.AccountService
-import com.mma.orbankmamtest.domain.model.Account
-import com.mma.orbankmamtest.domain.model.AccountInfo
+import com.mma.orbankmamtest.data.source.account.AccountService
+import com.mma.orbankmamtest.domain.models.Account
+import com.mma.orbankmamtest.domain.models.AccountInfo
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat
@@ -62,7 +62,7 @@ class AccountDataRepositoryTest {
 
             // Then
             assertThat(result).isEqualTo(
-                AccountDataResponse.Success(
+                AccountDataState.AccountSuccess(
                     listOf(
                         Account(
                             accountId = "accountId",
@@ -99,7 +99,7 @@ class AccountDataRepositoryTest {
             val result = accountDataRepository.fetchAccounts()
 
             // Then
-            assertThat(result).isEqualTo(AccountDataResponse.Failure)
+            assertThat(result).isEqualTo(AccountDataState.AccountFailure)
         }
     }
 }
