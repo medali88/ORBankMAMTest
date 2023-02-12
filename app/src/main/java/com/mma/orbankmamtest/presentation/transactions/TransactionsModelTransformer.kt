@@ -10,7 +10,6 @@ object TransactionsModelTransformer {
         model.map { transaction ->
             with(transaction) {
                 TransactionsDisplayModel(
-                    transactionId = transactionId,
                     transactionReference = transactionReference,
                     amount = with(amount) {
                         AmountDisplayModel(
@@ -22,18 +21,6 @@ object TransactionsModelTransformer {
                     status = status,
                     valueDateTime = valueDateTime.toYearMonthDayServerFormat().toString(),
                     transactionInformation = transactionInformation,
-                    bankTransactionCode = with(bankTransactionCode) {
-                        BankTransactionCodeDisplayModel(
-                            code = code,
-                            subCode = subCode,
-                        )
-                    },
-                    proprietaryBankTransactionCode = with(proprietaryBankTransactionCode) {
-                        ProprietaryBankTransactionCodeDisplayModel(
-                            code = code,
-                            issuer = issuer,
-                        )
-                    },
                     address = address
                 )
             }

@@ -41,7 +41,6 @@ class TransactionDetailsViewModelTest {
     fun `getTransactionsInformation given the TransactionsDisplayModel then state should get the some TransactionsDisplayModel`() {
         //given
         val transaction = TransactionsDisplayModel(
-            transactionId = "transactionId",
             transactionReference = "transactionReference",
             amount = AmountDisplayModel(
                 amount = "100,00 €",
@@ -51,16 +50,6 @@ class TransactionDetailsViewModelTest {
             status = "status",
             valueDateTime = "2022-11-05",
             transactionInformation = "transactionInformation",
-            bankTransactionCode =
-            BankTransactionCodeDisplayModel(
-                code = "code",
-                subCode = "subCode",
-            ),
-            proprietaryBankTransactionCode =
-            ProprietaryBankTransactionCodeDisplayModel(
-                code = "code",
-                issuer = "issuer",
-            ),
             address = "address"
         )
 

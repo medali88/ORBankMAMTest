@@ -8,25 +8,8 @@ object AccountsModelTransformer {
          model.map { account ->
              with(account) {
                  AccountsDisplayModel(
-                     accountId = accountId,
-                     status = status,
-                     statusUpdateDateTime = statusUpdateDateTime,
-                     currency = currency,
-                     accountType = accountType,
-                     accountSubType = accountId,
                      nickname = nickname,
-                     openingDate = openingDate,
                      transactionsUrl = transactionsUrl,
-                     accountInfo = accountInfo.map { info ->
-                         with(info) {
-                             AccountInfoDisplayModel(
-                                 schemeName = schemeName,
-                                 identification = identification,
-                                 name = name,
-                                 secondaryIdentification = secondaryIdentification,
-                             )
-                         }
-                     },
                  )
              }
          }

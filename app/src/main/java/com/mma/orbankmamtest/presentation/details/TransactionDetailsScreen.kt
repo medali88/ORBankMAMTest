@@ -10,8 +10,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mma.orbankmamtest.R
 import com.mma.orbankmamtest.presentation.transactions.AmountDisplayModel
-import com.mma.orbankmamtest.presentation.transactions.BankTransactionCodeDisplayModel
-import com.mma.orbankmamtest.presentation.transactions.ProprietaryBankTransactionCodeDisplayModel
 import com.mma.orbankmamtest.presentation.transactions.TransactionsDisplayModel
 import com.mma.orbankmamtest.presentation.widgets.TransactionDetailCard
 
@@ -58,7 +56,6 @@ fun TransactionDetailsScreen(
 fun TransactionDetailsScreenPreview() {
     TransactionDetailsScreen(
         transactionDisplayModel = TransactionsDisplayModel(
-            transactionId = "transactionId",
             transactionReference = "transactionReference",
             amount = AmountDisplayModel(
                 amount = "100,00 €",
@@ -68,14 +65,6 @@ fun TransactionDetailsScreenPreview() {
             status = "status",
             valueDateTime = "2022-11-05",
             transactionInformation = "transactionInformation",
-            bankTransactionCode = BankTransactionCodeDisplayModel(
-                code = "code",
-                subCode = "subCode",
-            ),
-            proprietaryBankTransactionCode = ProprietaryBankTransactionCodeDisplayModel(
-                code = "code",
-                issuer = "issuer",
-            ),
             address = "address"
         ),
     )

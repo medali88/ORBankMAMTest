@@ -160,7 +160,6 @@ class TransactionsViewModelTest {
                 SuccessTransactionsUiState(
                     credit = listOf(
                         TransactionsDisplayModel(
-                            transactionId = "transactionId",
                             transactionReference = "transactionReference",
                             amount = AmountDisplayModel(
                                 amount = "100,00 €",
@@ -170,20 +169,9 @@ class TransactionsViewModelTest {
                             status = "status",
                             valueDateTime = "2022-11-05",
                             transactionInformation = "transactionInformation",
-                            bankTransactionCode =
-                            BankTransactionCodeDisplayModel(
-                                code = "code",
-                                subCode = "subCode",
-                            ),
-                            proprietaryBankTransactionCode =
-                            ProprietaryBankTransactionCodeDisplayModel(
-                                code = "code",
-                                issuer = "issuer",
-                            ),
                             address = "address"
                         ),
                         TransactionsDisplayModel(
-                            transactionId = "transactionId",
                             transactionReference = "transactionReference",
                             amount = AmountDisplayModel(
                                 amount = "50,00 €",
@@ -193,22 +181,11 @@ class TransactionsViewModelTest {
                             status = "status",
                             valueDateTime = "2022-09-05",
                             transactionInformation = "transactionInformation",
-                            bankTransactionCode =
-                            BankTransactionCodeDisplayModel(
-                                code = "code",
-                                subCode = "subCode",
-                            ),
-                            proprietaryBankTransactionCode =
-                            ProprietaryBankTransactionCodeDisplayModel(
-                                code = "code",
-                                issuer = "issuer",
-                            ),
                             address = "address"
                         )
                     ),
                     debit = listOf(
                         TransactionsDisplayModel(
-                            transactionId = "transactionId",
                             transactionReference = "transactionReference",
                             amount = AmountDisplayModel(
                                 amount = "100,00 €",
@@ -218,20 +195,9 @@ class TransactionsViewModelTest {
                             status = "status",
                             valueDateTime = "2022-05-05",
                             transactionInformation = "transactionInformation",
-                            bankTransactionCode =
-                            BankTransactionCodeDisplayModel(
-                                code = "code",
-                                subCode = "subCode",
-                            ),
-                            proprietaryBankTransactionCode =
-                            ProprietaryBankTransactionCodeDisplayModel(
-                                code = "code",
-                                issuer = "issuer",
-                            ),
                             address = "address"
                         ),
                         TransactionsDisplayModel(
-                            transactionId = "transactionId",
                             transactionReference = "transactionReference",
                             amount = AmountDisplayModel(
                                 amount = "50,00 €",
@@ -241,16 +207,6 @@ class TransactionsViewModelTest {
                             status = "status",
                             valueDateTime = "2022-11-05",
                             transactionInformation = "transactionInformation",
-                            bankTransactionCode =
-                            BankTransactionCodeDisplayModel(
-                                code = "code",
-                                subCode = "subCode",
-                            ),
-                            proprietaryBankTransactionCode =
-                            ProprietaryBankTransactionCodeDisplayModel(
-                                code = "code",
-                                issuer = "issuer",
-                            ),
                             address = "address"
                         )
                     )

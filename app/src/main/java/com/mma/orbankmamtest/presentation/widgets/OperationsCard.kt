@@ -16,8 +16,6 @@ import androidx.compose.ui.unit.dp
 import com.mma.orbankmamtest.presentation.theme.*
 import com.mma.orbankmamtest.presentation.theme.OperationsTheme
 import com.mma.orbankmamtest.presentation.transactions.AmountDisplayModel
-import com.mma.orbankmamtest.presentation.transactions.BankTransactionCodeDisplayModel
-import com.mma.orbankmamtest.presentation.transactions.ProprietaryBankTransactionCodeDisplayModel
 import com.mma.orbankmamtest.presentation.transactions.TransactionsDisplayModel
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -104,7 +102,6 @@ fun TransactionDetailCardPreview() {
 fun OperationCardPreview() {
     OperationsTheme {
         OperationCard(transactionsDisplayModel =  TransactionsDisplayModel(
-            transactionId = "transactionId",
             transactionReference = "transactionReference",
             amount = AmountDisplayModel(
                     amount = "amount",
@@ -114,16 +111,6 @@ fun OperationCardPreview() {
             status = "status",
             valueDateTime = "valueDateTime",
             transactionInformation = "transactionInformation",
-            bankTransactionCode =
-                BankTransactionCodeDisplayModel(
-                    code = "code",
-                    subCode = "subCode",
-                ),
-            proprietaryBankTransactionCode =
-                ProprietaryBankTransactionCodeDisplayModel(
-                    code = "code",
-                    issuer = "issuer",
-                ),
             address = "address"
         )
         )

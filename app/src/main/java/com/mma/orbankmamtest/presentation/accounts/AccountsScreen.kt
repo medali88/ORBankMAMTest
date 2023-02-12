@@ -210,23 +210,8 @@ fun AccountsSelector(
 fun SpinnerAccountsPreview() {
     AccountsSelector(modifier = Modifier, accounts = listOf(
         AccountsDisplayModel(
-            accountId = "accountId",
-            status = "status",
-            statusUpdateDateTime = "statusUpdateDateTime",
-            currency = "currency",
-            accountType = "accountType",
-            accountSubType = "accountId",
             nickname = "nickname",
-            openingDate = "openingDate",
             transactionsUrl = "transactionsUrl",
-            accountInfo = listOf(
-                AccountInfoDisplayModel(
-                    schemeName = "schemeName",
-                    identification = "identification",
-                    name = "name",
-                    secondaryIdentification = "secondaryIdentification",
-                )
-            )
         )
     ), onAccountSelected = {})
 }
