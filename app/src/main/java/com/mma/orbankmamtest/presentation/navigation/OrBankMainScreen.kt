@@ -2,7 +2,11 @@ package com.mma.orbankmamtest.presentation.navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.Icon
+import androidx.compose.material.Text
+import androidx.compose.material.IconButton
+import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
@@ -19,7 +23,10 @@ import com.mma.orbankmamtest.R
 import com.mma.orbankmamtest.presentation.accounts.AccountsScreen
 import com.mma.orbankmamtest.presentation.details.TransactionDetailsScreen
 import com.mma.orbankmamtest.presentation.details.TransactionDetailsViewModel
-import com.mma.orbankmamtest.presentation.theme.*
+import com.mma.orbankmamtest.presentation.theme.Typography
+import com.mma.orbankmamtest.presentation.theme.xLargeHeading
+import com.mma.orbankmamtest.presentation.theme.OperationsOrangeLight
+import com.mma.orbankmamtest.presentation.theme.OperationsWhite
 
 enum class OrBankScreen(@StringRes val title: Int) {
     Main(title = R.string.app_name),

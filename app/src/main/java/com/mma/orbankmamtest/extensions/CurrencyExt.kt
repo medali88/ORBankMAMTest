@@ -3,7 +3,7 @@ package com.mma.orbankmamtest.extensions
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.util.*
+import java.util.Locale
 import java.util.Currency as CurrencyJava
 
 private const val NC = "-"

@@ -13,7 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mma.orbankmamtest.presentation.theme.*
+import com.mma.orbankmamtest.presentation.theme.OperationsOrangeDark
+import com.mma.orbankmamtest.presentation.theme.OperationsWhite
+import com.mma.orbankmamtest.presentation.theme.Typography
+import com.mma.orbankmamtest.presentation.theme.largeHeading
+import com.mma.orbankmamtest.presentation.theme.smallHeading
 import com.mma.orbankmamtest.presentation.theme.OperationsTheme
 import com.mma.orbankmamtest.presentation.transactions.AmountDisplayModel
 import com.mma.orbankmamtest.presentation.transactions.TransactionsDisplayModel

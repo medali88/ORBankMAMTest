@@ -4,13 +4,13 @@ import com.mma.orbankmamtest.domain.models.Account
 
 object AccountsModelTransformer {
 
-     fun transformToAccountDataDisplayModel(model: List<Account>) : List<AccountsDisplayModel> =
-         model.map { account ->
-             with(account) {
-                 AccountsDisplayModel(
-                     nickname = nickname,
-                     transactionsUrl = transactionsUrl,
-                 )
-             }
-         }
+    fun transformToAccountDataDisplayModel(model: List<Account>): List<AccountsDisplayModel> =
+        model.map { account ->
+            with(account) {
+                AccountsDisplayModel(
+                    nickname = nickname,
+                    transactionsUrl = transactionsUrl,
+                )
+            }
+        }
 }
